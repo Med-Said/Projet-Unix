@@ -60,19 +60,19 @@ awk -F";" '$1 == "Mlle" || $1 == "Mdm" {m++; print m}' Personnes | awk 'END {pri
 
 awk -F";" '$5 ~ /^C/ { n++; print n}' Personnes| awk 'END {printf "population Célibataire : %d \n", NR}' #le nombre de population Célibataires
 awk -F";" '$5 ~ /^C/ && $1 == "M" { n++; print n}' Personnes | awk 'END {printf "\thommes : %d\t", NR}'
-awk -F";" '$5 ~ /^C/ && ($1 == "Mlle" || $1 == "Mdm") { n++; print n}' Personnes | awk 'END {printf "fammes : %d\n", NR}' #repartition par sexe
+awk -F";" '$5 ~ /^C/ && ($1 == "Mlle" || $1 == "Mdm") { n++; print n}' Personnes | awk 'END {printf "femmes : %d\n", NR}' #repartition par sexe
 
 awk -F";" '$5 ~ /^D/ { n++; print n}' Personnes| awk 'END {printf "population Divorcé : %d \n", NR}' #le nombre de population Divorcé
 awk -F";" '$5 ~ /^D/ && $1 == "M" { n++; print n}' Personnes | awk 'END {printf "\thommes : %d\t", NR}'
-awk -F";" '$5 ~ /^D/ && ($1 == "Mlle" || $1 == "Mdm") { n++; print n}' Personnes | awk 'END {printf "fammes : %d\n", NR}' #repartition par sexe
+awk -F";" '$5 ~ /^D/ && ($1 == "Mlle" || $1 == "Mdm") { n++; print n}' Personnes | awk 'END {printf "femmes : %d\n", NR}' #repartition par sexe
 
 awk -F";" '$5 ~ /^M/ { n++; print n}' Personnes| awk 'END {printf "population Marié : %d \n", NR}' #le nombre de population Marié
 awk -F";" '$5 ~ /^M/ && $1 == "M" { n++; print n}' Personnes | awk 'END {printf "\thommes : %d\t", NR}'
-awk -F";" '$5 ~ /^M/ && ($1 == "Mlle" || $1 == "Mdm") { n++; print n}' Personnes | awk 'END {printf "fammes : %d\n", NR}' #repartition par sexe
+awk -F";" '$5 ~ /^M/ && ($1 == "Mlle" || $1 == "Mdm") { n++; print n}' Personnes | awk 'END {printf "femmes : %d\n", NR}' #repartition par sexe
 
 awk -F";" '$5 ~ /^P/ { n++; print n}' Personnes| awk 'END {printf "population Pacsé : %d \n", NR}' #le nombre de population Pacsé
 awk -F";" '$5 ~ /^P/ && $1 == "M" { n++; print n}' Personnes | awk 'END {printf "\thommes : %d\t", NR}'
-awk -F";" '$5 ~ /^P/ && ($1 == "Mlle" || $1 == "Mdm") { n++; print n}' Personnes | awk 'END {printf "fammes : %d\n", NR}' #repartition par sexe
+awk -F";" '$5 ~ /^P/ && ($1 == "Mlle" || $1 == "Mdm") { n++; print n}' Personnes | awk 'END {printf "femmes : %d\n", NR}' #repartition par sexe
 
 #la moyenne d'age
 function moyenne(){ # la fonction moyenne donne la moyenne d'une population donnee en parametre
@@ -101,4 +101,4 @@ creePopulation Personnes PersonnesM.txt PersonnesF.txt # creation des deux popul
 
 echo -n "moyenne total"; moyenne Personnes # apel de la fonction moyenne() ,(parametre : Personnes)
 echo -ne "\t hommes"; moyenne PersonnesM.txt
-echo -ne "\t fammes"; moyenne PersonnesF.txt
+echo -ne "\t femmes"; moyenne PersonnesF.txt

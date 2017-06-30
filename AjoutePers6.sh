@@ -71,6 +71,7 @@ until [[ $reponse == "n" || $reponse == "N" ]]; do
 				echo "vous avez besoin du nom pour pouvoire Supprimer cette personne !!!"
 				read -p "nom : " nom
 				awk -F";" -v nom=$nom '$2 != nom { print $0 }' Personnes > peopels;cp peopels Personnes; rm peopels
+				awk -F";" -v nom=$nom '$2 != nom { print $0 }' /tmp/Personnes > peopels;cp peopels /tmp/Personnes; rm peopels
 				break;
 				;;
 			*) echo autre chose
